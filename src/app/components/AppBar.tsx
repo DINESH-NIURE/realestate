@@ -8,13 +8,16 @@ import {
   NavbarMenu,
   Button,
 } from "@nextui-org/react";
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 import { HomeModernIcon } from "@heroicons/react/16/solid";
 import Link from "next/link";
-import SigninPage from "./Signin";
-import SignupPage from "./Signup";
 
-export default function App() {
+
+interface Props {
+  children: ReactNode;
+}
+
+export default function App({children}: Props) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -38,8 +41,7 @@ export default function App() {
         className="hidden sm:flex gap-4"
         justify="center"></NavbarContent>
       <NavbarContent justify="end">
-        <SigninPage/>
-        <SignupPage />
+        {children}
       </NavbarContent>
       <NavbarMenu></NavbarMenu>
     </Navbar>
