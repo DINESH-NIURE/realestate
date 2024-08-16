@@ -9,6 +9,7 @@ import {
   Avatar,
   User,
 } from "@nextui-org/react";
+import Link from "next/link";
 
 interface Props {
   user: prismaUser;
@@ -29,6 +30,11 @@ const UserProfilePanel = ({ user }: Props) => {
         />
       </DropdownTrigger>
       <DropdownMenu aria-label="User Actions" variant="flat">
+        <DropdownItem>
+          <Link href="/user/profile">
+            Profile
+          </Link>
+        </DropdownItem>
         <DropdownItem key="logout" color="danger">
           Log Out
         </DropdownItem>
